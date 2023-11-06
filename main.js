@@ -79,3 +79,19 @@ function onClickQuotes() {
   quotes.style.display = "none";
   newQuotes.style.display = "block";
 }
+
+async function getNft() {
+  const nftImg = document.querySelector(".nft-img");
+  const nftName = document.querySelector(".nft-name");
+  const nftDesc = document.querySelector(".nft-desc");
+
+  const response = await axios.get(
+    "https://olbm.mypinata.cloud/ipfs/QmdXdZSyVgYUQsEa2jETVGY5wCaebPUzF9XrKdhgebEYSc"
+  );
+
+  nftImg.src = response.data.image;
+
+  console.log(response);
+}
+
+getNft();
